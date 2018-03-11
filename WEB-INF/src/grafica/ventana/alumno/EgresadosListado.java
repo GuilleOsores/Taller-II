@@ -64,24 +64,8 @@ public class EgresadosListado extends Ventana {
 		
 		table = new JTable();
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		/*
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null},
-			},
-			new String[] {
-				"Cédula", "Nombre", "Apellido", "Prom. Total", "Prom. Aprovaciones"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-					String.class, String.class, String.class, Float.class, Float.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		*/
 		table.setBounds(10, 106, 454, 211);
+		
 		jScrollPane = new JScrollPane(table);
 		jScrollPane.setBounds(5, 42, 576, 215);
 		contentPane.add(jScrollPane);
