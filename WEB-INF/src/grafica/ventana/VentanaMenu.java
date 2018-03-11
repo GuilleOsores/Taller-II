@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import grafica.controlador.ControladorMenuPrincipal;
+import grafica.ventana.alumno.AlumnoEscolaridad;
 import grafica.ventana.alumno.AlumnoModificar;
 import grafica.ventana.alumno.AlumnoNuevo;
 import grafica.ventana.alumno.AlumnoPorCedula;
@@ -45,6 +46,7 @@ public class VentanaMenu extends Ventana {
 	private InscripcionNueva inscripcionNueva;
 	private InscripcionesListado inscripcionesListado;
 	private InscripcionesMontoRecaudado inscripcionesMontoRecaudado;
+	private AlumnoEscolaridad alumnoEscolaridad;
 	/**
 	 * Launch the application.
 	 */
@@ -226,10 +228,10 @@ public class VentanaMenu extends Ventana {
 	}
 	//ACCCION DE ITEMESCOLARIDAD
 	private void itemEscolaridadActionPerformed(ActionEvent e) {
-		if (inscripcionesListado  != null)
-			inscripcionesListado.dispose(); 
-		inscripcionesListado = new InscripcionesListado();
-		inscripcionesListado.setVisible(true);
+		if (alumnoEscolaridad  != null)
+			alumnoEscolaridad.dispose(); 
+		alumnoEscolaridad = new AlumnoEscolaridad();
+		alumnoEscolaridad.setVisible(true);
 
 	}
 
@@ -300,19 +302,19 @@ public class VentanaMenu extends Ventana {
 
 	//ACCION DE  mnRegistrarInscripcion REGISTRAR INSCRIPCION
 	private void mnRegistrarInscripcionActionPerformed(ActionEvent e) {
-		if (inscripcionNueva  != null)
-			inscripcionNueva.dispose();
-		inscripcionNueva   = new InscripcionNueva("");
-		inscripcionNueva.setVisible(true);
+		if (inscripcionesListado  != null)
+			inscripcionesListado.dispose();
+		inscripcionesListado   = new InscripcionesListado();
+		inscripcionesListado.setVisible(true);
 
 	}
 
 	//ACCION DE  mnRegistrarCalificacion REGISTRAR CALIFICACION
 	private void mnRegistrarCalificacionActionPerformed(ActionEvent e) {
-		if (inscripcionCalificar  != null)
-			inscripcionCalificar.dispose();
-		inscripcionCalificar  = new InscripcionCalificar("",0);
-		inscripcionCalificar.setVisible(true);
+		if (inscripcionesListado  != null)
+			inscripcionesListado.dispose();
+		inscripcionesListado  = new InscripcionesListado();
+		inscripcionesListado.setVisible(true);
 
 	}
 
