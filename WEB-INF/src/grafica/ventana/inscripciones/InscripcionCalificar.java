@@ -86,6 +86,12 @@ public class InscripcionCalificar extends Ventana {
 		textCedula.setText(cedula);
 		textNroInsc.setText(Integer.toString(numeroInsc));
 		
+		if (!cedula.isEmpty())
+			textCedula.setEnabled(false);
+		
+		if (numeroInsc != 0)
+			textNroInsc.setEnabled(false);
+		
 		JButton btnCalificar = new JButton("Calificar");
 		btnCalificar.setBounds(155, 127, 89, 23);
 		btnCalificar.addActionListener(new ActionListener() {

@@ -120,6 +120,9 @@ public class InscripcionNueva extends Ventana {
 		
 		textCedula.setText(cedula);
 		
+		if (!cedula.isEmpty())
+			textCedula.setEnabled(false);
+		
 		cargarListaAsignaturas();
 	}
 	
