@@ -13,19 +13,38 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import grafica.controlador.ControladorMenuPrincipal;
+import grafica.ventana.alumno.AlumnoModificar;
 import grafica.ventana.alumno.AlumnoNuevo;
 import grafica.ventana.alumno.AlumnoPorCedula;
 import grafica.ventana.alumno.AlumnosListado;
+import grafica.ventana.alumno.EgresadosListado;
 import grafica.ventana.asignatura.AsignaturaListado;
 import grafica.ventana.asignatura.AsignaturaNueva;
 import grafica.ventana.inscripciones.InscripcionCalificar;
 import grafica.ventana.inscripciones.InscripcionNueva;
 import grafica.ventana.inscripciones.InscripcionesListado;
+import grafica.ventana.inscripciones.InscripcionesMontoRecaudado;
+
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class VentanaMenu extends Ventana {
 
 	private JPanel contentPane;
 	ControladorMenuPrincipal controlador;
+	
+	private AsignaturaNueva asignaturaNueva;
+	private AsignaturaListado asignaturaListado;
+	private AlumnoNuevo alumnoNuevo;
+	private AlumnoPorCedula alumnoPorCedula;
+	
+	private AlumnosListado alumnosListado;
+	private EgresadosListado egresadosListado;
+	private InscripcionCalificar inscripcionCalificar;
+	private InscripcionNueva inscripcionNueva;
+	private InscripcionesListado inscripcionesListado;
+	private InscripcionesMontoRecaudado inscripcionesMontoRecaudado;
 	/**
 	 * Launch the application.
 	 */
@@ -46,6 +65,7 @@ public class VentanaMenu extends Ventana {
 	 * Create the frame.
 	 */
 	public VentanaMenu() {
+		setTitle("Chef Gourmet Uruguay");
 
 		controlador = new ControladorMenuPrincipal(this);
 
@@ -55,12 +75,17 @@ public class VentanaMenu extends Ventana {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setName("Chef Gourmet Uruguay"); 
 
 		JMenuBar menu = new JMenuBar();
 		menu.setBounds(0, 0, 0, 0);
 		contentPane.add(menu, BorderLayout.NORTH);
 
 		JMenuItem itemRespaldar = new JMenuItem("Respaldar Datos");
+		itemRespaldar.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
+		itemRespaldar.setHorizontalAlignment(SwingConstants.LEFT);
+		itemRespaldar.setForeground(new Color(0, 128, 128));
+		itemRespaldar.setBackground(new Color(240, 255, 240));
 		itemRespaldar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				itemRespaldarActionPerformed(e);
@@ -69,6 +94,10 @@ public class VentanaMenu extends Ventana {
 		menu.add(itemRespaldar);
 
 		JMenuItem itemEscolaridad = new JMenuItem("Consulta Escolaridad");
+		itemEscolaridad.setForeground(new Color(0, 128, 128));
+		itemEscolaridad.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
+		itemEscolaridad.setHorizontalAlignment(SwingConstants.LEFT);
+		itemEscolaridad.setBackground(new Color(240, 255, 240));
 		itemEscolaridad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				itemEscolaridadActionPerformed(e);
@@ -77,6 +106,10 @@ public class VentanaMenu extends Ventana {
 		menu.add(itemEscolaridad);
 
 		JMenuItem itemEgresados = new JMenuItem("Listado de Egresados");
+		itemEgresados.setForeground(new Color(0, 128, 128));
+		itemEgresados.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
+		itemEgresados.setHorizontalAlignment(SwingConstants.LEFT);
+		itemEgresados.setBackground(new Color(240, 255, 240));
 		itemEgresados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				itemEgresadosActionPerformed(e);
@@ -86,12 +119,24 @@ public class VentanaMenu extends Ventana {
 
 
 		JMenu asignaturas = new JMenu("Asignaturas");
+		asignaturas.setForeground(new Color(0, 128, 128));
+		asignaturas.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
+		asignaturas.setBackground(new Color(240, 255, 240));
+		asignaturas.setHorizontalAlignment(SwingConstants.LEFT);
 		menu.add(asignaturas);
 
 		JMenu alumnos = new JMenu("Alumnos");
+		alumnos.setForeground(new Color(0, 128, 128));
+		alumnos.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
+		alumnos.setHorizontalAlignment(SwingConstants.LEFT);
+		alumnos.setBackground(new Color(240, 255, 240));
 		menu.add(alumnos);
 
 		JMenu inscripciones = new JMenu("Inscripciones");
+		inscripciones.setForeground(new Color(0, 128, 128));
+		inscripciones.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
+		inscripciones.setHorizontalAlignment(SwingConstants.LEFT);
+		inscripciones.setBackground(new Color(240, 255, 240));
 		menu.add(inscripciones);
 
 		//Asignaturas
@@ -181,79 +226,102 @@ public class VentanaMenu extends Ventana {
 	}
 	//ACCCION DE ITEMESCOLARIDAD
 	private void itemEscolaridadActionPerformed(ActionEvent e) {
-
-		InscripcionesListado ventana = new InscripcionesListado();
-		ventana.setVisible(true);
+		if (inscripcionesListado  != null)
+			inscripcionesListado.dispose(); 
+		inscripcionesListado = new InscripcionesListado();
+		inscripcionesListado.setVisible(true);
 
 	}
 
 	//ACCCION DE ITEMEGRESADOS
 	private void itemEgresadosActionPerformed(ActionEvent e) {
-		//falta hacer 
+		if (egresadosListado  != null)
+			egresadosListado.dispose(); 
+		egresadosListado  = new EgresadosListado();
+		egresadosListado.setVisible(true); 
 
 	}
 
 	//ACCION DE  mnRegistrarAsignatrua REGISTRAR ASIGNATURA
 	private void mnRegistrarAsignatruaActionPerformed(ActionEvent e) {
-		AsignaturaNueva ventana = new AsignaturaNueva();
-		ventana.setVisible(true);
+		if (asignaturaNueva  != null)
+			asignaturaNueva.dispose(); 
+		asignaturaNueva  = new AsignaturaNueva();
+		asignaturaNueva.setVisible(true);
+		
 
 	}
 
 	//ACCION DE  mnListarAsignatrua LISTAR ASIGNATURA
 	private void mnListarAsignatruaActionPerformed(ActionEvent e) {
-		AsignaturaListado ventana = new AsignaturaListado();
-		ventana.setVisible(true);
+		if (asignaturaListado  != null)
+			asignaturaListado.dispose(); 
+		asignaturaListado  = new AsignaturaListado();
+		asignaturaListado.setVisible(true);
 
 	}
 
 	//ACCION DE  mnRegistrarAlumno REGISTRAR ALUMNO 
 	private void mnRegistrarAlumnoActionPerformed(ActionEvent e) {
-		AlumnoNuevo ventana = new AlumnoNuevo();
-		ventana.setVisible(true);
+		if (alumnoNuevo  != null)
+			alumnoNuevo.dispose(); 
+			alumnoNuevo  = new AlumnoNuevo();
+			alumnoNuevo.setVisible(true);
 
 	}
 
 	//ACCION DE  mnModificarAlumno MODIFICAR ALUMNO
 	private void mnModificarAlumnoActionPerformed(ActionEvent e) {
-		AlumnosListado ventana = new AlumnosListado();
-		ventana.setVisible(true);
+		if (alumnosListado  != null)
+			alumnosListado.dispose(); 
+		alumnosListado  = new AlumnosListado();
+		alumnosListado.setVisible(true);
 
 	}
 
 	//ACCION DE  mnListadoAlumno LISTAR ALUMNO POR APELLIDO
 	private void mnListarAlumnoActionPerformed(ActionEvent e) {
-		AlumnosListado ventana = new AlumnosListado();
-		ventana.setVisible(true);
+		if (alumnosListado  != null)
+			alumnosListado.dispose();
+		alumnosListado   = new AlumnosListado();
+		alumnosListado.setVisible(true);
 
 	}
 
 	//ACCION DE  mnDetalleAlumno  ALUMNO DETALLADO  
 	private void mnDetalleAlumnoActionPerformed(ActionEvent e) {
-		 AlumnoPorCedula ventana = new AlumnoPorCedula();
-		 ventana.setVisible(true);
+		if (alumnoPorCedula  != null)
+			alumnoPorCedula.dispose();
+		alumnoPorCedula   = new AlumnoPorCedula();
+		alumnoPorCedula.setVisible(true);
 
 	}
 
 
 	//ACCION DE  mnRegistrarInscripcion REGISTRAR INSCRIPCION
 	private void mnRegistrarInscripcionActionPerformed(ActionEvent e) {
-		 InscripcionNueva ventana = new InscripcionNueva("");
-		 ventana.setVisible(true);
+		if (inscripcionNueva  != null)
+			inscripcionNueva.dispose();
+		inscripcionNueva   = new InscripcionNueva("");
+		inscripcionNueva.setVisible(true);
 
 	}
 
 	//ACCION DE  mnRegistrarCalificacion REGISTRAR CALIFICACION
 	private void mnRegistrarCalificacionActionPerformed(ActionEvent e) {
-		 InscripcionCalificar ventana = new InscripcionCalificar("",0);
-		 ventana.setVisible(true);
+		if (inscripcionCalificar  != null)
+			inscripcionCalificar.dispose();
+		inscripcionCalificar  = new InscripcionCalificar("",0);
+		inscripcionCalificar.setVisible(true);
 
 	}
 
 	//ACCION DE  mnCalcularMonto CALCULAR MONTO POR INSCRIPCIONES  
 	private void mnCalcularMontoActionPerformed(ActionEvent e) {
-		// AlumnosPorCedula ventana = new AlumnosPorCedula();
-		// ventana.setVisible(true);
+		if (inscripcionesMontoRecaudado   != null)
+			inscripcionesMontoRecaudado.dispose();
+		inscripcionesMontoRecaudado  = new InscripcionesMontoRecaudado();
+		inscripcionesMontoRecaudado.setVisible(true);
 
 	}
 }

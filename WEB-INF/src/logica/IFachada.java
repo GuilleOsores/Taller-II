@@ -13,6 +13,7 @@ import exception.AsignaturaNoExisteException;
 import exception.AsignaturaYaAprobadaException;
 import exception.AsignaturaYaCalificadaException;
 import exception.AsignaturaYaExisteException;
+import exception.CalificacionFueraDeRango;
 import exception.ErrorAnioInscripcionException;
 import exception.InscripcionNoExisteException;
 import exception.ListaLlenaException;
@@ -42,7 +43,7 @@ public interface IFachada extends Remote {
 	
 	public void inscripcionAsignatura( VOInscripcion voInscripcion ) throws RemoteException, AlumnoNoExisteException, AsignaturaYaAprobadaException, ErrorAnioInscripcionException, AlumnoYaInscriptoException, AsignaturaNoExisteException;
 
-	public void registrarCalificacion( int cedula, int nroInscripcion, int nota ) throws RemoteException, AlumnoNoExisteException, InscripcionNoExisteException, AsignaturaYaCalificadaException ;
+	public void registrarCalificacion( int cedula, int nroInscripcion, int nota ) throws RemoteException, AlumnoNoExisteException, InscripcionNoExisteException, AsignaturaYaCalificadaException, CalificacionFueraDeRango;
 	
 	public float montoRecaudado( int cedula, int anioLectivo ) throws RemoteException, AlumnoNoExisteException;
 	

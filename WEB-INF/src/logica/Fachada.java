@@ -14,6 +14,7 @@ import exception.AsignaturaNoExisteException;
 import exception.AsignaturaYaAprobadaException;
 import exception.AsignaturaYaCalificadaException;
 import exception.AsignaturaYaExisteException;
+import exception.CalificacionFueraDeRango;
 import exception.ErrorAnioInscripcionException;
 import exception.ListaLlenaException;
 import exception.PersistenciaException;
@@ -231,7 +232,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada {
 
 
 	//Requerimiento 8: Registro de resultado de una asignatura		
-	public void registrarCalificacion( int cedula, int nroInscripcion, int nota ) throws AlumnoNoExisteException, InscripcionNoExisteException, AsignaturaYaCalificadaException {
+	public void registrarCalificacion( int cedula, int nroInscripcion, int nota ) throws AlumnoNoExisteException, InscripcionNoExisteException, AsignaturaYaCalificadaException,CalificacionFueraDeRango {
 		monitor.comienzoEscritura();
 
 		if(!alumnos.contiene( cedula) ) {
@@ -246,17 +247,20 @@ public class Fachada extends UnicastRemoteObject implements IFachada {
 				monitor.terminoEscritura();
 				throw new InscripcionNoExisteException("No existe una inscripcion con ese numero para el alumno");
 			}
-			else {
+			else if(nota < 0 || nota > 12 ) {
+				monitor.terminoEscritura();
+				throw new CalificacionFueraDeRango();
+			}else {
 
 				Inscripcion i = alumno.obtenerInscripcion(nroInscripcion);
 				if(i.getCalificacion()>0) {
 					monitor.terminoEscritura();
 					throw new AsignaturaYaCalificadaException();
 
-				}
-				else {
+				}else 
 					i.setCalificacion(nota);
-				}
+				
+				
 
 			}
 

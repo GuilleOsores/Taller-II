@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 
 import exception.InscripcionNoExisteException;
 import exception.AsignaturaYaCalificadaException;
+import exception.CalificacionFueraDeRango;
 import exception.AlumnoNoExisteException;
 import grafica.controlador.Controlador;
 import grafica.ventana.inscripciones.InscripcionCalificar;
@@ -35,9 +36,6 @@ public class ControladorInscripcionCalificar extends Controlador {
 		}else if( calificacion == null ) {
 			showMessageDialog( "La calificación no puede ser vacío" );
 			
-		}else if( calificacion < 1 || calificacion > 12 ) {
-			showMessageDialog( "La calificación debe estar comprendida entre 1 y 12" );
-			
 		}else {
 			int intCedula	= Integer.parseInt( cedula );
 			int intNumInsc	= Integer.parseInt( numeroInsc );
@@ -54,7 +52,10 @@ public class ControladorInscripcionCalificar extends Controlador {
 				showMessageDialog( "La asignatura ya fue calificada" );
 			} catch (AlumnoNoExisteException e) {
 				showMessageDialog( "El alumno no existe" );
-			} 
+			} catch(CalificacionFueraDeRango e) {
+				showMessageDialog( "La calificacion debe de estar entre 1 y 12" );
+				
+			}
 		}
 		
 	}	

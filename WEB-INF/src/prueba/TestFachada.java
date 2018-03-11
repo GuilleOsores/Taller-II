@@ -14,6 +14,7 @@ import exception.AsignaturaNoExisteException;
 import exception.AsignaturaYaAprobadaException;
 import exception.AsignaturaYaCalificadaException;
 import exception.AsignaturaYaExisteException;
+import exception.CalificacionFueraDeRango;
 import exception.ErrorAnioInscripcionException;
 import exception.InscripcionNoExisteException;
 import exception.ListaLlenaException;
@@ -176,6 +177,8 @@ public class TestFachada {
 			System.out.println("AsignaturaYaCalificadaException");
 		} catch (InscripcionNoExisteException e) {
 			System.out.println("InscripcionNoExisteException");
+		}catch (CalificacionFueraDeRango e) {
+			System.out.println("La calificacion debe de estar entre 0 y 12");
 		}
 		System.out.println("\n\n\n");
 		
@@ -214,7 +217,7 @@ public class TestFachada {
 			fachada.registrarCalificacion(123, 9, 6);
 			fachada.registrarCalificacion(123, 10, 8);
 			
-		} catch (AsignaturaYaExisteException | ListaLlenaException | AlumnoNoExisteException | AsignaturaYaAprobadaException | ErrorAnioInscripcionException | AlumnoYaInscriptoException | AsignaturaNoExisteException | InscripcionNoExisteException | AsignaturaYaCalificadaException e1) {
+		} catch (AsignaturaYaExisteException | ListaLlenaException | AlumnoNoExisteException | AsignaturaYaAprobadaException | ErrorAnioInscripcionException | AlumnoYaInscriptoException | AsignaturaNoExisteException | InscripcionNoExisteException | AsignaturaYaCalificadaException | CalificacionFueraDeRango e1) {
 			System.out.println("error por querer egresarlo mas de una vez");
 			// TODO Auto-generated catch block
 			//e1.printStackTrace();

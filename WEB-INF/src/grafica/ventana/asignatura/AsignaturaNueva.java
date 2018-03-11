@@ -91,26 +91,7 @@ public class AsignaturaNueva extends Ventana {
 				String codigo	    = txtCodigo.getText();
 				String nombre		= txtNombre.getText();
 				String descripcion  = txtDescripcion.getText();
-				if( !codigo.isEmpty() ) {
-					if( !nombre.isEmpty() ) {
-						if( !descripcion.isEmpty() ) {
-							
-						
-						controladorAsignaturaNueva.grabar( codigo, nombre, descripcion );
-						}
-						else {
-							showMessageDialog( "La descripcion no puede ser vacía" );
-						}
-				}
-				else {
-					showMessageDialog( "El nombre no puede ser vacío" );
-				}
-			}
-			else {
-				showMessageDialog( "El codigo no puede ser vacío" );
-			}
-						
-		
+				controladorAsignaturaNueva.grabar( codigo, nombre, descripcion );			
 		}
 		});
 		btnGuardar.setBounds(111, 184, 89, 23);

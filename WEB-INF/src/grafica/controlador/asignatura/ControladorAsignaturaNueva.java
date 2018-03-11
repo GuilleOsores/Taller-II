@@ -12,34 +12,46 @@ import logica.vo.VOAlumno;
 import logica.vo.VOAsignatura;
 
 public class ControladorAsignaturaNueva extends Controlador {
-	
-	
+
+
 	public ControladorAsignaturaNueva (AsignaturaNueva asignaturaNueva) {
-		
+
 		super(asignaturaNueva);
 	}
-	
+
 	public void grabar(String codigo, String nombre, String descripcion) {
-		
-		VOAsignatura voAsig = new VOAsignatura(codigo,nombre,descripcion);
-		try {
-			getFachada().registrarAsignatura(voAsig);
-			
-			showMessageDialog("Asignatura registrada");
-			getVentana().dispose();
-		}catch(RemoteException e) {
-			showMessageDialog( "El servidor está caído" );
-		} catch (ListaLlenaException e) {
-			showMessageDialog( "No se admiten mas asignaturas " );
-		}catch (AsignaturaYaExisteException e) {
-			showMessageDialog( "La asignatura ya existe" );
+		System.out.println("k=llegue");
+		if( codigo.isEmpty() ) {
+			showMessageDialog( "El codigo no puede ser vacío" );
+		}else if( nombre.isEmpty() ) {
+			showMessageDialog( "El nombre no puede ser vacío" );
 		}
-		
+		else if( descripcion.isEmpty() ) {
+			showMessageDialog( "La descripcion no puede ser vacía" );	
+		}else {
+
+
+
+			VOAsignatura voAsig = new VOAsignatura(codigo,nombre,descripcion);
+			try {
+				getFachada().registrarAsignatura(voAsig);
+
+				showMessageDialog("Asignatura registrada");
+				getVentana().dispose();
+			}catch(RemoteException e) {
+				showMessageDialog( "El servidor está caído" );
+			} catch (ListaLlenaException e) {
+				showMessageDialog( "No se admiten mas asignaturas " );
+			}catch (AsignaturaYaExisteException e) {
+				showMessageDialog( "La asignatura ya existe" );
+			}
+
+		}
 	}
-	
+
 	@Override
 	public void showMessageDialog( String string ) {
-		 
+
 		getVentana().showMessageDialog( string );
 	}
 
