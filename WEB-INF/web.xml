@@ -8,10 +8,6 @@
   <description> Taller 2 </description>
   <display-name> Taller 2 </display-name>
   
-   <servlet-mapping>
-            <servlet-name>main</servlet-name>
-            <url-pattern>/*</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
             <servlet-name>default</servlet-name>
             <url-pattern>/static/*</url-pattern>
@@ -35,7 +31,7 @@
   </servlet-mapping>
 
   <welcome-file-list>
-	<welcome-file>/Escolaridad.jsp</welcome-file>
+	<welcome-file>/index.jsp</welcome-file>
   </welcome-file-list>
 
 </web-app>
