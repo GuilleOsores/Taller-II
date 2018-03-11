@@ -21,19 +21,17 @@
 	</form>
 	<table border="5" width="50%" height="50">
 		<tr>
-			<th>Numero</th>
-			<th>Año Lectivo</th>
-			<th>Monto Base</th>
-			<th>Calificación</th>
+			<th>Número</th>
 			<th>Asignatura</th>
+			<th>Año Lectivo</th>
+			<th>Calificación</th>
 		</tr>
 		<c:forEach items="${escolaridad}" var="i" >
 			<tr>
 				<td> ${i.getNumero()} </td>
-				<td> ${i.getAnioLectivo()} </td>
-				<td> ${i.getMontoBase()} </td>
-				<td> ${i.getCalificacion()} </td>
 				<td> ${i.getAsignaturaNombre()} </td>
+				<td> ${i.getAnioLectivo()} </td>
+				<td> ${i.getCalificacion()} </td>
 			</tr>
 		</c:forEach>
 	</table>

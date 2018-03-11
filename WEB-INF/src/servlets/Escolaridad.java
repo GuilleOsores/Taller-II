@@ -54,12 +54,7 @@ public class Escolaridad extends Servlet {
 				}
 
 			}
-
-			HttpSession session = req.getSession();
-			synchronized (session)
-			{
-				session.setAttribute("cedula", cedula);    
-			}	    
+  
 		}    
 
 		// forwardeo a la página apropiada
