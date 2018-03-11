@@ -25,7 +25,6 @@ public class Escolaridad extends Servlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// obtengo los datos del Request
 		String cedula = req.getParameter("cedula");
-		String completo = req.getParameter("tipo");
 		boolean error = true;
 
 		String msgError = new String();
@@ -37,19 +36,14 @@ public class Escolaridad extends Servlet {
 			msgError = "La cédula debe ser numérica";
 			req.setAttribute("msgError", msgError);
 
-		} else if ( !( completo.equals( "true" ) || completo.equals( "false" ) ) ) {
-			msgError = "Opción inválida: " + completo;
-			req.setAttribute("msgError", msgError);
-
 		} else {		    
 			IFachada iFachada = conectar( req );
 
 			if( iFachada != null ) {
 				int intCedula	= Integer.parseInt( cedula );
-				boolean parcial = !Boolean.parseBoolean( completo );
 
 				try {
-					List<VOEscolaridad> lvoe = iFachada.escolaridad( intCedula, parcial );
+					List<VOEscolaridad> lvoe = iFachada.escolaridad( intCedula, true ); //parcial
 					req.setAttribute( "escolaridad", lvoe );
 
 					error = false;

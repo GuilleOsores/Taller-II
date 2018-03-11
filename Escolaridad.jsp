@@ -14,19 +14,19 @@
 				<td><span>Cédula</span></td>
 				<td><input type="text" id="cedula" name="cedula"/></td>
 			</tr>
-			<tr>
-				<td></td>
-				<td><select id="tipo" name="tipo">
-						<option value="true" selected="true">Completo</option>
-						<option value="false">Intermedio</option>
-				</select></td>
-			</tr>
 		</table>
 		<p>
 			<input type='submit' value='ENVIAR'>
 		</p>
 	</form>
 	<table border="5" width="50%" height="50">
+		<tr>
+			<th>Numero</th>
+			<th>Año Lectivo</th>
+			<th>Monto Base</th>
+			<th>Calificación</th>
+			<th>Asignatura</th>
+		</tr>
 		<c:forEach items="${escolaridad}" var="i" >
 			<tr>
 				<td> ${i.getNumero()} </td>
