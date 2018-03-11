@@ -9,17 +9,20 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import grafica.controlador.inscripciones.ControladorInscripcionCalificar;
 import grafica.ventana.Ventana;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JSpinner;
 
+@SuppressWarnings("serial")
 public class InscripcionCalificar extends Ventana {
 
 	private JPanel contentPane;
 	private JTextField textCedula;
 	private JTextField textNroInsc;
+	ControladorInscripcionCalificar controlador;
 
 	/**
 	 * Launch the application.
@@ -41,6 +44,9 @@ public class InscripcionCalificar extends Ventana {
 	 * Create the frame.
 	 */
 	public InscripcionCalificar(String cedula, Integer numeroInsc) {
+		
+		controlador = new ControladorInscripcionCalificar(this);
+		
 		setResizable(false);
 		setTitle("Calificar Inscripci\u00F3n");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -77,7 +83,10 @@ public class InscripcionCalificar extends Ventana {
 	
 		JSpinner calificacion = new JSpinner();
 		calificacion.setBounds(110, 76, 134, 20);
-		contentPane.add(calificacion);		
+		contentPane.add(calificacion);
+		
+		textCedula.setText(cedula);
+		textNroInsc.setText(Integer.toString(numeroInsc));
 		
 		JButton btnCalificar = new JButton("Calificar");
 		btnCalificar.setBounds(155, 127, 89, 23);
