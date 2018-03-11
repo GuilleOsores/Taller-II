@@ -23,10 +23,12 @@ import grafica.controlador.inscripciones.ControladorInscripcionesListado;
 import grafica.ventana.Ventana;
 
 import grafica.ventana.inscripciones.InscripcionNueva;
+import javafx.scene.control.ComboBox;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
+import logica.vo.VOEgresado;
 import logica.vo.VOEscolaridad;
 
 
@@ -40,6 +42,7 @@ public class InscripcionesListado extends Ventana{
 	private JButton btnModificar;
 	private InscripcionNueva inscripcionNueva;
 	private InscripcionCalificar inscripcionCalificar;
+	private JComboBox comboBox;
 
 	
 	ControladorInscripcionesListado controlador;
@@ -155,30 +158,42 @@ public class InscripcionesListado extends Ventana{
 		lblModoListado.setBounds(10, 11, 90, 14);
 		contentPane.add(lblModoListado);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Completo", "Parcial"}));
 		comboBox.setBounds(113, 8, 151, 20);
 		contentPane.add(comboBox);
 		
 		//cargarTabla();
 	}
-	
-	private void cargarTabla(){		
-		String strCedula	= txtCedula.getText();
-		
-		DefaultTableModel dtm = ((DefaultTableModel)table.getModel());
-		
 
-		List<logica.vo.VOEscolaridad> lvoe = controlador.listarInscripciones(strCedula, false);
-		
-		for(int row = table.getModel().getRowCount() - 1 ; row >= 0 ; row--)
-			dtm.removeRow(row);
-		
-		for(logica.vo.VOEscolaridad voe : lvoe) {
-			dtm.addRow(new Object[]{voe.getNumero(), voe.getAsignaturaNombre(), voe.getAnioLectivo(), voe.getCalificacion(), voe.getMontoBase()});;
+	private void cargarTabla() {
+		System.out.println("cargo");
+		Object[][] data = null;
+		Object[] titles = null;
+		int i = 0;
+		List<VOEscolaridad> lvoe;
+
+		if( "Parcial".equals( (String)comboBox.getSelectedItem() ) ) {
+			lvoe = controlador.listarInscripciones( txtCedula.getText(), true );
+			data = new Object[lvoe.size()][];
+			for( VOEscolaridad voe: lvoe ) {
+				data[i] = new Object[] { voe.getNumero(), voe.getAsignaturaNombre(), voe.getAnioLectivo(), voe.getCalificacion() };
+				i++;
+			}
+			titles = new Object[] { "N° Inscripción", "Nombre Asignatura", "Año Lectivo", "Calificación" };
+				
+		}else {
+			lvoe = controlador.listarInscripciones( txtCedula.getText(), false );
+			data = new Object[lvoe.size()][];
+			for( VOEscolaridad voe: lvoe ) {
+				data[i] = new Object[] { voe.getNumero(), voe.getAsignaturaNombre(), voe.getAnioLectivo(), voe.getCalificacion(), voe.getMontoBase() };
+				i++;
+			}
+			titles = new Object[] { "N° Inscripción", "Nombre Asignatura", "Año Lectivo", "Calificación", "Monto Base" };
 		}
+		
+		table.setModel( new DefaultTableModel(data, titles) );
 		table.repaint();
-
 	}
 	
 	public void showMessageDialog( String mensaje ) {

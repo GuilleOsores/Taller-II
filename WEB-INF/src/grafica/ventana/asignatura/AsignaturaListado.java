@@ -27,11 +27,11 @@ public class AsignaturaListado extends Ventana {
 
 	private JPanel contentPane;
 	private JTable table;
-	
+
 	ControladorAsignaturaListado controlador;
-	
-	
-	 
+
+
+
 	/**
 	 * Launch the application.
 	 */
@@ -52,9 +52,9 @@ public class AsignaturaListado extends Ventana {
 	 * Create the frame.
 	 */
 	public AsignaturaListado() {
-		
+
 		controlador = new ControladorAsignaturaListado(this);
-		
+
 		setTitle("Listado de Asignaturas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 652, 386);
@@ -62,7 +62,7 @@ public class AsignaturaListado extends Ventana {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnListar = new JButton("Listar");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -71,51 +71,51 @@ public class AsignaturaListado extends Ventana {
 		});
 		btnListar.setBounds(500, 61, 105, 25);
 		contentPane.add(btnListar);
-		
+
 		table = new JTable();
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null},
-			},
-			new String[] {
-				"Codigo", "Nombre", "Descripcion" 
-			}
-		) {
+				new Object[][] {
+					{null, null, null},
+				},
+				new String[] {
+						"Codigo", "Nombre", "Descripcion" 
+				}
+				) {
 			Class[] columnTypes = new Class[] {
-				 String.class, String.class, String.class
+					String.class, String.class, String.class
 			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
 		});
-		
+
 		table.setBounds(10, 106, 454, 211);
 		JScrollPane jScrollPane = new JScrollPane(table);
 		jScrollPane.setBounds(10, 55, 454, 211);
 		contentPane.add(jScrollPane);
-		
+
 	}	
-		
-		private void cargarTabla() {
-			DefaultTableModel dtm = ((DefaultTableModel)table.getModel());
-			
-			List<logica.vo.VOAsignatura > lvoasig = controlador.listarAsignaturas();
-			
-			for(int row = table.getModel().getRowCount() - 1 ; row >= 0 ; row--)
-				dtm.removeRow(row);
-			
-			for(logica.vo.VOAsignatura voa : lvoasig) {
-				dtm.addRow(new Object[]{voa.getCodigo(), voa.getNombre(), voa.getDescripcion()});;
-			}
-			table.repaint();
+
+	private void cargarTabla() {
+		DefaultTableModel dtm = ((DefaultTableModel)table.getModel());
+
+		List<logica.vo.VOAsignatura > lvoasig = controlador.listarAsignaturas();
+
+		for(int row = table.getModel().getRowCount() - 1 ; row >= 0 ; row--)
+			dtm.removeRow(row);
+
+		for(logica.vo.VOAsignatura voa : lvoasig) {
+			dtm.addRow(new Object[]{voa.getCodigo(), voa.getNombre(), voa.getDescripcion()});;
 		}
-		
-		public void showMessageDialog( String mensaje ) {
-			//System.out.println("ventana mensaje?: " + mensaje);
-			javax.swing.JOptionPane.showMessageDialog( null, mensaje );
-		} 
-		
+		table.repaint();
+	}
+
+	public void showMessageDialog( String mensaje ) {
+		//System.out.println("ventana mensaje?: " + mensaje);
+		javax.swing.JOptionPane.showMessageDialog( null, mensaje );
+	} 
+
 
 
 }
