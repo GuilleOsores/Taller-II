@@ -35,6 +35,9 @@ public class ControladorInscripcionCalificar extends Controlador {
 		}else if( calificacion == null ) {
 			showMessageDialog( "La calificación no puede ser vacío" );
 			
+		}else if( calificacion < 1 || calificacion > 12 ) {
+			showMessageDialog( "La calificación debe estar comprendida entre 1 y 12" );
+			
 		}else {
 			int intCedula	= Integer.parseInt( cedula );
 			int intNumInsc	= Integer.parseInt( numeroInsc );
