@@ -8,10 +8,18 @@
   <description> Taller 2 </description>
   <display-name> Taller 2 </display-name>
   
+   <servlet-mapping>
+            <servlet-name>main</servlet-name>
+            <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+            <servlet-name>default</servlet-name>
+            <url-pattern>/static/*</url-pattern>
+    </servlet-mapping>
+  
   <servlet>
     <servlet-name>Escolaridad</servlet-name>
     <servlet-class>servlets.Escolaridad</servlet-class>
-    
     <init-param>
 		<param-name>ServidorIp</param-name>
 		<param-value>127.0.0.1</param-value>
@@ -21,7 +29,6 @@
 		<param-value>1198</param-value>
 	</init-param>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>Escolaridad</servlet-name>
     <url-pattern>/Escolaridad</url-pattern>
