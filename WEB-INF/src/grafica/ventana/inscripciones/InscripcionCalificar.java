@@ -66,7 +66,6 @@ public class InscripcionCalificar extends Ventana {
 		contentPane.add(lblCdula);
 		
 		textCedula = new JTextField();
-		textCedula.setEnabled(false);
 		textCedula.setBounds(110, 28, 134, 20);
 		contentPane.add(textCedula);
 		textCedula.setColumns(10);
@@ -76,7 +75,6 @@ public class InscripcionCalificar extends Ventana {
 		contentPane.add(lblNInscripcin);
 		
 		textNroInsc = new JTextField();
-		textNroInsc.setEnabled(false);
 		textNroInsc.setBounds(110, 53, 134, 20);
 		contentPane.add(textNroInsc);
 		textNroInsc.setColumns(10);
