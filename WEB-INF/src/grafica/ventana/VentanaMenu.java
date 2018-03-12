@@ -14,15 +14,12 @@ import javax.swing.border.EmptyBorder;
 
 import grafica.controlador.ControladorMenuPrincipal;
 import grafica.ventana.alumno.AlumnoEscolaridad;
-import grafica.ventana.alumno.AlumnoModificar;
 import grafica.ventana.alumno.AlumnoNuevo;
 import grafica.ventana.alumno.AlumnoPorCedula;
 import grafica.ventana.alumno.AlumnosListado;
 import grafica.ventana.alumno.EgresadosListado;
 import grafica.ventana.asignatura.AsignaturaListado;
 import grafica.ventana.asignatura.AsignaturaNueva;
-import grafica.ventana.inscripciones.InscripcionCalificar;
-import grafica.ventana.inscripciones.InscripcionNueva;
 import grafica.ventana.inscripciones.InscripcionesListado;
 import grafica.ventana.inscripciones.InscripcionesMontoRecaudado;
 
@@ -32,6 +29,8 @@ import java.awt.Font;
 
 public class VentanaMenu extends Ventana {
 
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	ControladorMenuPrincipal controlador;
 	
@@ -39,11 +38,8 @@ public class VentanaMenu extends Ventana {
 	private AsignaturaListado asignaturaListado;
 	private AlumnoNuevo alumnoNuevo;
 	private AlumnoPorCedula alumnoPorCedula;
-	
 	private AlumnosListado alumnosListado;
 	private EgresadosListado egresadosListado;
-	private InscripcionCalificar inscripcionCalificar;
-	private InscripcionNueva inscripcionNueva;
 	private InscripcionesListado inscripcionesListado;
 	private InscripcionesMontoRecaudado inscripcionesMontoRecaudado;
 	private AlumnoEscolaridad alumnoEscolaridad;

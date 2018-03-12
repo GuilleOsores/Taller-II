@@ -48,6 +48,7 @@ public class TestFachada {
 			System.out.println("ClassNotFoundException");
 		}*/
 		
+		@SuppressWarnings("unused")
 		int cantErrores = 0;
 		
 		

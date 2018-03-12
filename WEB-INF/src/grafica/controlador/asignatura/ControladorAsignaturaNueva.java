@@ -2,13 +2,10 @@ package grafica.controlador.asignatura;
 
 import java.rmi.RemoteException;
 
-import exception.AlumnoYaExisteException;
 import exception.AsignaturaYaExisteException;
 import exception.ListaLlenaException;
 import grafica.controlador.Controlador;
-import grafica.ventana.alumno.AlumnoNuevo;
 import grafica.ventana.asignatura.AsignaturaNueva;
-import logica.vo.VOAlumno;
 import logica.vo.VOAsignatura;
 
 public class ControladorAsignaturaNueva extends Controlador {

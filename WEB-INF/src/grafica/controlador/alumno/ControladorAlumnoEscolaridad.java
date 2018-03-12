@@ -5,7 +5,6 @@ import java.util.List;
 
 import exception.AlumnoNoExisteException;
 import grafica.controlador.Controlador;
-import grafica.ventana.Ventana;
 import grafica.ventana.alumno.AlumnoEscolaridad;
 
 public class ControladorAlumnoEscolaridad extends Controlador {

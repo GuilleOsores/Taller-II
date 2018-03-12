@@ -14,21 +14,13 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-
-
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 
 import grafica.controlador.inscripciones.ControladorInscripcionesListado;
-
 import grafica.ventana.Ventana;
-
 import grafica.ventana.inscripciones.InscripcionNueva;
-import javafx.scene.control.ComboBox;
-
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-
-import logica.vo.VOEgresado;
 import logica.vo.VOEscolaridad;
 
 
@@ -42,7 +34,7 @@ public class InscripcionesListado extends Ventana{
 	private JButton btnModificar;
 	private InscripcionNueva inscripcionNueva;
 	private InscripcionCalificar inscripcionCalificar;
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 
 	
 	ControladorInscripcionesListado controlador;
@@ -108,14 +100,7 @@ public class InscripcionesListado extends Ventana{
 			new String[] {
 				"N\u00B0 Inscripci\u00F3n", "Nombre Asignatura", "A\u00F1o Lectivo", "Calificaci\u00F3n", "Monto Base"
 			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, String.class, String.class, String.class, String.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
+		) );
 		table.setBounds(10, 106, 454, 211);
 		JScrollPane jScrollPane = new JScrollPane(table);
 		jScrollPane.setBounds(10, 109, 561, 211);
@@ -158,8 +143,8 @@ public class InscripcionesListado extends Ventana{
 		lblModoListado.setBounds(10, 11, 90, 14);
 		contentPane.add(lblModoListado);
 		
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Completo", "Parcial"}));
+		comboBox = new JComboBox<String>();
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Completo", "Parcial"}));
 		comboBox.setBounds(113, 8, 151, 20);
 		contentPane.add(comboBox);
 		

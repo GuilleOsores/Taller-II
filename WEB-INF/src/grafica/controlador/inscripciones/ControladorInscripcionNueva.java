@@ -12,7 +12,6 @@ import exception.AsignaturaYaAprobadaException;
 import grafica.controlador.Controlador;
 import grafica.ventana.inscripciones.InscripcionNueva;
 import logica.vo.VOInscripcion;
-import logica.vo.VOAsignatura;
 
 
 public class ControladorInscripcionNueva extends Controlador{

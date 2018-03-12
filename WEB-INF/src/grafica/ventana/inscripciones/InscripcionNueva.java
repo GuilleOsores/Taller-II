@@ -27,7 +27,7 @@ public class InscripcionNueva extends Ventana {
 	private JPanel contentPane;
 	private JTextField anioLectivo;
 	private JTextField montoBase;
-	private JComboBox listAsignaturas;
+	private JComboBox<String> listAsignaturas;
 	
 	ControladorInscripcionNueva controlador;
 	private JTextField textCedula;
@@ -79,7 +79,7 @@ public class InscripcionNueva extends Ventana {
 		montoBase.setBounds(170, 116, 174, 23);
 		montoBase.setColumns(10);
 
-		listAsignaturas = new JComboBox();
+		listAsignaturas = new JComboBox<String>();
 		listAsignaturas.setBounds(170, 41, 174, 23);
 		
 				

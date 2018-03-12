@@ -10,11 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JLabel;
 
 
 import grafica.controlador.asignatura.ControladorAsignaturaListado;
@@ -81,14 +79,8 @@ public class AsignaturaListado extends Ventana {
 				new String[] {
 						"Codigo", "Nombre", "Descripcion" 
 				}
-				) {
-			Class[] columnTypes = new Class[] {
-					String.class, String.class, String.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
+				)
+		);
 
 		table.setBounds(10, 106, 454, 211);
 		JScrollPane jScrollPane = new JScrollPane(table);

@@ -12,9 +12,7 @@ import grafica.ventana.VentanaMenu;
 public class ControladorMenuPrincipal extends Controlador {
 
 	public ControladorMenuPrincipal(VentanaMenu vmPrincipal) {
-		
 		super(vmPrincipal);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void respaldar() {

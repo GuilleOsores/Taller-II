@@ -1,6 +1,5 @@
 package grafica.ventana.inscripciones;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +17,8 @@ import javax.swing.JButton;
 
 public class InscripcionesMontoRecaudado extends Ventana {
 
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JTextField textCedula;
 	private JTextField textAnioLectivo;

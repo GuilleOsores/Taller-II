@@ -1,6 +1,4 @@
 package prueba;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import logica.alumno.Alumno;
@@ -11,7 +9,6 @@ import logica.inscripcion.Inscripciones;
 import logica.alumno.Alumnos;
 import logica.vo.VOAlumnoListado;
 import logica.vo.VOEgresado;
-import logica.vo.VOEscolaridad;
 
 
 public class TestAlumno {
