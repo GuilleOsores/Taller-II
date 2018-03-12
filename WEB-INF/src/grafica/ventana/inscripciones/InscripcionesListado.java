@@ -167,12 +167,11 @@ public class InscripcionesListado extends Ventana{
 	}
 
 	private void cargarTabla() {
-		System.out.println("cargo");
 		Object[][] data = null;
 		Object[] titles = null;
 		int i = 0;
 		List<VOEscolaridad> lvoe;
-
+		
 		if( "Parcial".equals( (String)comboBox.getSelectedItem() ) ) {
 			lvoe = controlador.listarInscripciones( txtCedula.getText(), true );
 			data = new Object[lvoe.size()][];
@@ -181,7 +180,6 @@ public class InscripcionesListado extends Ventana{
 				i++;
 			}
 			titles = new Object[] { "N° Inscripción", "Nombre Asignatura", "Año Lectivo", "Calificación" };
-				
 		}else {
 			lvoe = controlador.listarInscripciones( txtCedula.getText(), false );
 			data = new Object[lvoe.size()][];
