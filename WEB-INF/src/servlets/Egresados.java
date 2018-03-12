@@ -7,22 +7,15 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import exception.AlumnoNoExisteException;
 import logica.IFachada;
 import logica.vo.VOEgresado;
-import logica.vo.VOEscolaridad;
 
 public class Egresados extends Servlet {
 	private static final long serialVersionUID = 1L;
 
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) {
 
-	}	
-
-
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
 		IFachada iFachada = conectar( req );

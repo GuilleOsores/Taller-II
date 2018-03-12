@@ -27,7 +27,7 @@
         <ul>
           <li ><a href="index.jsp"><span>Inicio</span></a></li>
           <li class="active"><a href="Escolaridad.jsp"><span>Escolaridad</span></a></li>
-          <li><a href="Egresados.jsp"><span>Egresados</span></a></li>
+          <li><a href="Egresados"><span>Egresados</span></a></li>
         </ul>
       </div>
       <div class="clr"></div>

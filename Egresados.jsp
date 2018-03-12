@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.LinkedList" %>
-<jsp:useBean id='egresados' scope='request' class='java.util.LinkedList' />
+<jsp:useBean id='egresados' scope='request' class='java.util.ArrayList' />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,7 +26,7 @@
         <ul>
           <li ><a href="index.jsp"><span>Inicio</span></a></li>
           <li ><a href="Escolaridad.jsp"><span>Escolaridad</span></a></li>
-          <li class="active"><a href="Egresados.jsp"><span>Egresados</span></a></li>
+          <li class="active"><a href="Egresados"><span>Egresados</span></a></li>
         </ul>
       </div>
       <div class="clr"></div>
