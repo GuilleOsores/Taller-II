@@ -30,7 +30,7 @@ public class ControladorAlumnoEscolaridad extends Controlador {
 				lvoe = getFachada().escolaridad(cedula, modo);
 				
 			} catch (AlumnoNoExisteException e) {
-				showMessageDialog("AlumnoNoExisteException");
+				showMessageDialog("El alumno no existe");
 				
 			} catch (RemoteException e) {
 				showMessageDialog( "El servidor está caído" );
