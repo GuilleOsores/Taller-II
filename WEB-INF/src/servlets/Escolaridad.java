@@ -19,7 +19,8 @@ public class Escolaridad extends Servlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) {
-
+		RequestDispatcher rd;
+		rd = req.getRequestDispatcher("Escolaridad.jsp");
 	}
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
