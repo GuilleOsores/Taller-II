@@ -30,10 +30,10 @@ import java.awt.Font;
 public class VentanaMenu extends Ventana {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private JPanel contentPane;
 	ControladorMenuPrincipal controlador;
-	
+
 	private AsignaturaNueva asignaturaNueva;
 	private AsignaturaListado asignaturaListado;
 	private AlumnoNuevo alumnoNuevo;
@@ -68,7 +68,7 @@ public class VentanaMenu extends Ventana {
 		controlador = new ControladorMenuPrincipal(this);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 917, 332);
+		setBounds(100, 100, 603, 332);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -79,61 +79,25 @@ public class VentanaMenu extends Ventana {
 		menu.setBounds(0, 0, 0, 0);
 		contentPane.add(menu, BorderLayout.NORTH);
 
-		JMenuItem itemRespaldar = new JMenuItem("Respaldar Datos");
-		itemRespaldar.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
-		itemRespaldar.setHorizontalAlignment(SwingConstants.LEFT);
-		itemRespaldar.setForeground(new Color(0, 128, 128));
-		itemRespaldar.setBackground(new Color(240, 255, 240));
-		itemRespaldar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				itemRespaldarActionPerformed(e);
-			}
-		});
-		menu.add(itemRespaldar);
-
-		JMenuItem itemEscolaridad = new JMenuItem("Consulta Escolaridad");
-		itemEscolaridad.setForeground(new Color(0, 128, 128));
-		itemEscolaridad.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
-		itemEscolaridad.setHorizontalAlignment(SwingConstants.LEFT);
-		itemEscolaridad.setBackground(new Color(240, 255, 240));
-		itemEscolaridad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				itemEscolaridadActionPerformed(e);
-			}
-		});
-		menu.add(itemEscolaridad);
-
-		JMenuItem itemEgresados = new JMenuItem("Listado de Egresados");
-		itemEgresados.setForeground(new Color(0, 128, 128));
-		itemEgresados.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
-		itemEgresados.setHorizontalAlignment(SwingConstants.LEFT);
-		itemEgresados.setBackground(new Color(240, 255, 240));
-		itemEgresados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				itemEgresadosActionPerformed(e);
-			}
-		});
-		menu.add(itemEgresados);
-
 
 		JMenu asignaturas = new JMenu("Asignaturas");
 		asignaturas.setForeground(new Color(0, 128, 128));
 		asignaturas.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
 		asignaturas.setBackground(new Color(240, 255, 240));
-		asignaturas.setHorizontalAlignment(SwingConstants.LEFT);
+		asignaturas.setHorizontalAlignment(SwingConstants.CENTER);
 		menu.add(asignaturas);
 
 		JMenu alumnos = new JMenu("Alumnos");
 		alumnos.setForeground(new Color(0, 128, 128));
 		alumnos.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
-		alumnos.setHorizontalAlignment(SwingConstants.LEFT);
+		alumnos.setHorizontalAlignment(SwingConstants.CENTER);
 		alumnos.setBackground(new Color(240, 255, 240));
 		menu.add(alumnos);
 
-		JMenu inscripciones = new JMenu("Inscripciones");
+		JMenu inscripciones = new JMenu("Inscripciones/ Escolaridad");
 		inscripciones.setForeground(new Color(0, 128, 128));
 		inscripciones.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
-		inscripciones.setHorizontalAlignment(SwingConstants.LEFT);
+		inscripciones.setHorizontalAlignment(SwingConstants.CENTER);
 		inscripciones.setBackground(new Color(240, 255, 240));
 		menu.add(inscripciones);
 
@@ -196,7 +160,7 @@ public class VentanaMenu extends Ventana {
 		});
 		inscripciones.add(mnRegistrarInscripcion);
 
-		JMenuItem mnRegistrarCalificacion = new JMenuItem("Registrar Calificacion");
+		JMenuItem mnRegistrarCalificacion = new JMenuItem("Calificar/ Listar Escolaridad");
 		mnRegistrarCalificacion.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				mnRegistrarCalificacionActionPerformed(e);
@@ -212,6 +176,53 @@ public class VentanaMenu extends Ventana {
 		});
 		inscripciones.add(mnCalcularMonto);
 
+
+		JMenu egresados = new JMenu("Egresados");
+		egresados.setForeground(new Color(0, 128, 128));
+		egresados.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
+		egresados.setBackground(new Color(240, 255, 240));
+		egresados.setHorizontalAlignment(SwingConstants.CENTER);
+		menu.add(egresados);
+
+		JMenuItem itemEgresados = new JMenuItem("Listado Egresados");
+		itemEgresados.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				itemEgresadosActionPerformed(e);
+			}
+		});
+		egresados.add(itemEgresados);
+
+
+
+
+		//JMenuItem itemRespaldar = new JMenuItem("Respaldar Datos");
+		//itemRespaldar.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
+		//itemRespaldar.setHorizontalAlignment(SwingConstants.LEFT);
+		//itemRespaldar.setForeground(new Color(0, 128, 128));
+		//itemRespaldar.setBackground(new Color(240, 255, 240));
+		//itemRespaldar.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
+		//		itemRespaldarActionPerformed(e);
+		//	}
+		//});
+		//menu.add(itemRespaldar);
+
+		JMenu respaldar = new JMenu("Respaldos");
+		respaldar.setForeground(new Color(0, 128, 128));
+		respaldar.setFont(new Font("Segoe UI Emoji", Font.BOLD, 15));
+		respaldar.setBackground(new Color(240, 255, 240));
+		respaldar.setHorizontalAlignment(SwingConstants.CENTER);
+		menu.add(respaldar);
+
+		JMenuItem itemRespaldar = new JMenuItem("Respaldo de datos");
+		itemRespaldar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				itemRespaldarActionPerformed(e);
+			}
+		});
+		respaldar.add(itemRespaldar);
+
+
 	}
 
 
@@ -219,17 +230,10 @@ public class VentanaMenu extends Ventana {
 	//ACCCION DE ITEMRESPALDAR
 
 	private void itemRespaldarActionPerformed(ActionEvent e) {
-		 controlador.respaldar();
+		controlador.respaldar();
 
 	}
-	//ACCCION DE ITEMESCOLARIDAD
-	private void itemEscolaridadActionPerformed(ActionEvent e) {
-		if (alumnoEscolaridad  != null)
-			alumnoEscolaridad.dispose(); 
-		alumnoEscolaridad = new AlumnoEscolaridad();
-		alumnoEscolaridad.setVisible(true);
 
-	}
 
 	//ACCCION DE ITEMEGRESADOS
 	private void itemEgresadosActionPerformed(ActionEvent e) {
@@ -246,7 +250,7 @@ public class VentanaMenu extends Ventana {
 			asignaturaNueva.dispose(); 
 		asignaturaNueva  = new AsignaturaNueva();
 		asignaturaNueva.setVisible(true);
-		
+
 
 	}
 
@@ -263,8 +267,8 @@ public class VentanaMenu extends Ventana {
 	private void mnRegistrarAlumnoActionPerformed(ActionEvent e) {
 		if (alumnoNuevo  != null)
 			alumnoNuevo.dispose(); 
-			alumnoNuevo  = new AlumnoNuevo();
-			alumnoNuevo.setVisible(true);
+		alumnoNuevo  = new AlumnoNuevo();
+		alumnoNuevo.setVisible(true);
 
 	}
 
