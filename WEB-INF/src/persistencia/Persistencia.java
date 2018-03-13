@@ -45,10 +45,10 @@ public class Persistencia {
 			f.close();
 		} catch( java.io.EOFException ex ) {
 			System.out.println("el archivo está vacío");
-			voFachada = new VOFachada( new Asignaturas(), new Alumnos() );
+			voFachada = new VOFachada();
 		} catch (FileNotFoundException e) {
 			System.out.println("el archivo no existe");
-			voFachada = new VOFachada( new Asignaturas(), new Alumnos() );
+			voFachada = new VOFachada();
 		}
 		
 		return voFachada;
