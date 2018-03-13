@@ -100,7 +100,8 @@ public class InscripcionesListado extends Ventana{
 			new String[] {
 				"N\u00B0 Inscripci\u00F3n", "Nombre Asignatura", "A\u00F1o Lectivo", "Calificaci\u00F3n", "Monto Base"
 			}
-		) );
+		)
+		);
 		table.setBounds(10, 106, 454, 211);
 		JScrollPane jScrollPane = new JScrollPane(table);
 		jScrollPane.setBounds(10, 78, 561, 211);
@@ -175,7 +176,14 @@ public class InscripcionesListado extends Ventana{
 			titles = new Object[] { "N° Inscripción", "Nombre Asignatura", "Año Lectivo", "Calificación", "Monto Base" };
 		}
 		
-		table.setModel( new DefaultTableModel(data, titles) );
+		table.setModel( new DefaultTableModel(data, titles){
+			boolean[] columnEditables = new boolean[] {
+					false, false, false, false, false
+				};
+				public boolean isCellEditable(int row, int column) {
+					return columnEditables[column];
+				}
+			}  );
 		table.repaint();
 	}
 	
