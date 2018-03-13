@@ -11,6 +11,11 @@ public class VOFachada implements Serializable {
 	private Asignaturas asignaturas;
 	private Alumnos alumnos;
 	
+	public VOFachada() {
+		asignaturas = new Asignaturas();
+		alumnos = new Alumnos();
+	}
+	
 	public VOFachada(Asignaturas asignaturas, Alumnos alumnos ) {
 		this.asignaturas = asignaturas;
 		this.alumnos = alumnos;

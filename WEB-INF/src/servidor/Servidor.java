@@ -24,6 +24,8 @@ public class Servidor {
 			LocateRegistry.createRegistry(Integer.parseInt(puertoServidor));
 			Fachada fachada = new Fachada();
 			Naming.rebind("//" + ipServidor + ":" + puertoServidor + "/fachada", fachada);
+
+			System.out.println("Corriendo en " + ipServidor + ":" + puertoServidor);
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -36,8 +38,6 @@ public class Servidor {
 			System.exit(3);
 		}
 
-        System.out.println("Corriendo... ");
-        
 	}
 	
 }

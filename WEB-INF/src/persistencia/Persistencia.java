@@ -44,11 +44,11 @@ public class Persistencia {
 			o.close();
 			f.close();
 		} catch( java.io.EOFException ex ) {
+			voFachada = new VOFachada();
 			System.out.println("el archivo está vacío");
-			voFachada = new VOFachada( new Asignaturas(), new Alumnos() );
 		} catch (FileNotFoundException e) {
+			voFachada = new VOFachada();
 			System.out.println("el archivo no existe");
-			voFachada = new VOFachada( new Asignaturas(), new Alumnos() );
 		}
 		
 		return voFachada;
