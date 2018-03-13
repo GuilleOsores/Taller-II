@@ -247,7 +247,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada {
 				monitor.terminoEscritura();
 				throw new InscripcionNoExisteException("No existe una inscripcion con ese numero para el alumno");
 			}
-			else if(nota < 0 || nota > 12 ) {
+			else if(nota < 1 || nota > 12 ) {
 				monitor.terminoEscritura();
 				throw new CalificacionFueraDeRango();
 			}else {
