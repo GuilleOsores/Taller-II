@@ -2,8 +2,6 @@ package prueba;
 
 import java.util.Iterator;
 
-import exception.AsignaturaYaExisteException;
-import exception.ListaLlenaException;
 import logica.asignatura.Asignatura;
 import logica.asignatura.Asignaturas;
 import logica.vo.VOAsignatura;

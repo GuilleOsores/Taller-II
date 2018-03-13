@@ -1,8 +1,5 @@
 package grafica.controlador.inscripciones;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.List;
 
@@ -10,7 +7,6 @@ import exception.AlumnoNoExisteException;
 import grafica.ventana.inscripciones.InscripcionesListado;
 import grafica.controlador.Controlador;
 
-import exception.AlumnoNoExisteException;
 
 public class ControladorInscripcionesListado extends Controlador {
 	

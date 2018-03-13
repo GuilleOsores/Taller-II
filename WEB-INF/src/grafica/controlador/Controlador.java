@@ -27,18 +27,14 @@ public abstract class Controlador {
 			servidorPuerto = Configuracion.getProperty("ServidorPuerto");
 			fachada = (IFachada) Naming.lookup("//" + servidorIp + ":" + servidorPuerto + "/fachada");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			showMessageDialog( "Falta el archivo de configuración" );
+			System.exit(1);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("antesde llamar al show");
-			showMessageDialog( "El error al leer el archivo de configuración" );
-		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			showMessageDialog( "El servidor está caído" );
+			System.exit(2);
+		} catch (NotBoundException e) {
+			showMessageDialog( "El servidor está caído" );
+			System.exit(2);
 		}
 		
 	}

@@ -1,2 +1,11 @@
 /info.bin
 *.bin
+*.class
+*.class
+*.class
+*.class
+*.class
+WEB-INF/classes/prueba/TestAsignaturas_old.class
+WEB-INF/classes/prueba/TestAsignaturas.class
+WEB-INF/classes/prueba/TestAlumno.class
+*.class

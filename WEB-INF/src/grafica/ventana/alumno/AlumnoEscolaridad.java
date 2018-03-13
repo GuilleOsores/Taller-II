@@ -1,14 +1,11 @@
 package grafica.ventana.alumno;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,7 +17,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import grafica.controlador.alumno.ControladorAlumnoEscolaridad;
-import grafica.controlador.inscripciones.ControladorInscripcionesListado;
 import grafica.ventana.Ventana;
 import logica.vo.VOEscolaridad;
 
@@ -96,9 +92,11 @@ public class AlumnoEscolaridad extends Ventana {
 			"N\u00B0 Inscripci\u00F3n", "Nombre Asignatura", "A\u00F1o Lectivo", "Calificaci\u00F3n", "Monto Base"
 		}
 	) {
+		@SuppressWarnings("rawtypes")
 		Class[] columnTypes = new Class[] {
 			Integer.class, String.class, String.class, String.class, String.class
 		};
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		public Class getColumnClass(int columnIndex) {
 			return columnTypes[columnIndex];
 		}

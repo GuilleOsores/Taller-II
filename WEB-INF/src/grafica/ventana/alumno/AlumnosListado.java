@@ -90,14 +90,7 @@ public class AlumnosListado extends Ventana{
 			new String[] {
 				"CI", "Nombre", "Apellido", "Tipo"
 			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, String.class, String.class, String.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
+		) );
 		table.setBounds(10, 106, 454, 211);
 		JScrollPane jScrollPane = new JScrollPane(table);
 		jScrollPane.setBounds(10, 55, 454, 211);
