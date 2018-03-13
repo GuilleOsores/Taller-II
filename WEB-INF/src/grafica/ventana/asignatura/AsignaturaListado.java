@@ -79,7 +79,14 @@ public class AsignaturaListado extends Ventana {
 				new String[] {
 						"Codigo", "Nombre", "Descripcion" 
 				}
-				)
+				){
+					boolean[] columnEditables = new boolean[] {
+							false, false, false
+						};
+						public boolean isCellEditable(int row, int column) {
+							return columnEditables[column];
+						}
+				} 
 		);
 
 		table.setBounds(10, 106, 454, 211);

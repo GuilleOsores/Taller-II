@@ -90,7 +90,14 @@ public class AlumnosListado extends Ventana{
 			new String[] {
 				"CI", "Nombre", "Apellido", "Tipo"
 			}
-		) );
+		){
+			boolean[] columnEditables = new boolean[] {
+					false, false, false, false
+				};
+				public boolean isCellEditable(int row, int column) {
+					return columnEditables[column];
+				}
+			}  );
 		table.setBounds(10, 106, 454, 211);
 		JScrollPane jScrollPane = new JScrollPane(table);
 		jScrollPane.setBounds(10, 55, 454, 211);
