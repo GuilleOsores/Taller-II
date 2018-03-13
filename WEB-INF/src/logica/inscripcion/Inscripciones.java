@@ -119,8 +119,9 @@ public class Inscripciones implements Serializable  {
 			
 		    Inscripcion ins = inscripciones.getFirst();
 			
-			if( ins.getAsignatura().getCodigo() == codigoAsignatura) {
-				if(ins.getAnio() == anioLectivo) 
+			if( ins.getAsignatura().getCodigo().equals(codigoAsignatura)) {
+
+				if(Integer.toString(ins.getAnio()).equals(Integer.toString(anioLectivo))) 
 					enCurso = true;					
 			}
 			
