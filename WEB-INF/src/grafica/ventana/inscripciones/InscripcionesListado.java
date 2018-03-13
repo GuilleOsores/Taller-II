@@ -61,7 +61,7 @@ public class InscripcionesListado extends Ventana{
 	public InscripcionesListado() {
 		controlador = new ControladorInscripcionesListado( this );
 		
-		setTitle("Listado de Inscripciones");
+		setTitle("Manejo de Inscripciones/Escolaridad");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 370);
 		contentPane = new JPanel();
@@ -78,7 +78,7 @@ public class InscripcionesListado extends Ventana{
 		contentPane.add(txtCedula);
 		txtCedula.setColumns(10);
 		
-		JButton btnBuscar = new JButton("Obtener");
+		JButton btnBuscar = new JButton("Obtener Escolaridad");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -89,7 +89,7 @@ public class InscripcionesListado extends Ventana{
 				}
 			}
 		});
-		btnBuscar.setBounds(280, 31, 90, 20);
+		btnBuscar.setBounds(274, 31, 156, 20);
 		contentPane.add(btnBuscar);
 		
 		table = new JTable();
@@ -103,7 +103,7 @@ public class InscripcionesListado extends Ventana{
 		) );
 		table.setBounds(10, 106, 454, 211);
 		JScrollPane jScrollPane = new JScrollPane(table);
-		jScrollPane.setBounds(10, 109, 561, 211);
+		jScrollPane.setBounds(10, 78, 561, 211);
 		contentPane.add(jScrollPane);
 		
 		btnAgregar = new JButton("Nueva Inscripción");
@@ -117,10 +117,10 @@ public class InscripcionesListado extends Ventana{
 				inscripcionNueva.setVisible(true);
 			}
 		});
-		btnAgregar.setBounds(380, 31, 142, 20);
+		btnAgregar.setBounds(429, 31, 142, 20);
 		contentPane.add(btnAgregar);
 		
-		btnModificar = new JButton("Calificar");
+		btnModificar = new JButton("Calificar Asignatura");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if( table.getSelectedRow() >= 0 ) {
@@ -136,7 +136,7 @@ public class InscripcionesListado extends Ventana{
 				}
 			}
 		});
-		btnModificar.setBounds(10, 74, 102, 20);
+		btnModificar.setBounds(10, 300, 151, 20);
 		contentPane.add(btnModificar);
 		
 		JLabel lblModoListado = new JLabel("Modo Listado:");
