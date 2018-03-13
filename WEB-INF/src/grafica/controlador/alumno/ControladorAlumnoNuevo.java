@@ -39,14 +39,17 @@ public class ControladorAlumnoNuevo extends Controlador {
 		}else if( !soloNumeros( telefono.trim() ) ) {
 			showMessageDialog( "El teléfono debe ser numérico" );
 			
-		}else if( becado && descuento.trim().isEmpty() ) {
+		}else if( becado && descuento.trim().isEmpty() ) { //becado sin descuento
 			showMessageDialog( "El descuento no puede ser vacío" );
 			
-		}else if( !becado && descuento.trim().isEmpty() ) {
+		}else if( !becado && !descuento.trim().isEmpty() ) { //comun con descuento
 			showMessageDialog( "Solo los becados pueden tener descuento" );
 			
 		}else if( becado && descripcion.trim().isEmpty() ) {
-			showMessageDialog( "Al no tener desceunto la descripción debería estar vacía" );
+			showMessageDialog( "Ingrese la descripcion" );
+		
+		}else if( !becado && !descripcion.trim().isEmpty() ) {
+			showMessageDialog( "La descripcion debe ser vacía" );
 			
 		}else if( !soloNumeros( descuento.trim() ) ) {
 			showMessageDialog( "El descuento debe ser numérica" );
