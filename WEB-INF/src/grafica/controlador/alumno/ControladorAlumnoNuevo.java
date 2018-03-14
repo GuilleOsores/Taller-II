@@ -54,17 +54,18 @@ public class ControladorAlumnoNuevo extends Controlador {
 		}else if( !soloNumeros( descuento.trim() ) ) {
 			showMessageDialog( "El descuento debe ser numérica" );
 			
-		}else if( Integer.parseInt( descuento.trim() ) > 100 || Integer.parseInt( descuento.trim() ) < 1 ) {
+		}else if( becado && (Integer.parseInt( descuento.trim() ) > 100 || Integer.parseInt( descuento.trim() ) < 1 ) ) {
 			showMessageDialog( "El descuento debe ser entre 1 y 100" );
 			
 		}else {
 			int intCedula		= Integer.parseInt( cedula );
 			int intTelefono		= Integer.parseInt( telefono );
-			int intDescuento	= Integer.parseInt( descuento );
 			VOAlumno voAlumno;
 			
-			if( becado )  
-				voAlumno = new VOBecado( intCedula, nombre, apellido, domicilio, intTelefono, email, intDescuento, descripcion );
+			if( becado ) {
+				int intDescuento	= Integer.parseInt( descuento );
+				voAlumno = new VOBecado( intCedula, nombre, apellido, domicilio, intTelefono, email, intDescuento, descripcion );				
+			}
 			else
 				voAlumno = new VOAlumno( intCedula, nombre, apellido, domicilio, intTelefono, email );
 			
