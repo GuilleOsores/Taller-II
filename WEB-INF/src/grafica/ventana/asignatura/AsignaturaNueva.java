@@ -46,6 +46,7 @@ public class AsignaturaNueva extends Ventana {
 	 * Create the frame.
 	 */
 	public AsignaturaNueva() {
+		setTitle("Nueva asignatura");
 		
 		controladorAsignaturaNueva = new  ControladorAsignaturaNueva( this );
 	
